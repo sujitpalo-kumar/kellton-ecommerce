@@ -1,30 +1,33 @@
 import HomePage from "./pages/HomePage/homepage.component";
-import {Route,Routes} from 'react-router-dom'
+
+import {Routes,Route} from 'react-router-dom'
 import ShopPage from "./pages/ShopPage/shoppage.component";
 import SignInSignUp from "./pages/Sign-in-and-Sign-up/Sign-in-and-Sign-up.component";
 import Header from "./components/header/header.component";
+import Category from "./pages/Category/Category.component";
+import Checkout from "./pages/Checkout/Checkout.component";
 
 // ROUTE EXAMPLE IMPORTS
 // import {Link,useNavigate,useParams} from 'react-router-dom'
 
 function App() {
   return (
-    
     <>
-    <Header/>
     {/**Routes used to have multilple route options just
       like nav in html */}
+      <Header />
       <Routes>
       {/** path represents the navigation path where it should
         redirect to */}
-        <Route path='/' element={<HomePage />} />
+        <Route path='/' element={<HomePage  />} />
         <Route path='/shop' element={<ShopPage />} />
-        <Route path='/signin' element={<SignInSignUp/>}/>
-
-        {/** ROUTE EXAMPLES
+        <Route path='/signin' element={<SignInSignUp />} />
+        <Route path='/category/:categoryId' element={ <Category />} />
+        <Route path='/checkout' element={<Checkout  />} />
+         {/**  ROUTE EXAMPLES
         <Route path='/topiclist' element={<TopicList />} />
-        // <Route path='/topiclist/:topicId' element={<TopicDetail />} />
-        */}
+        <Route path='/topiclist/:topicId' element={<TopicDetail />} /> */}
+      
       </Routes>
     </>
   );
